@@ -21,14 +21,19 @@ async function run(){
 
     try{
         const userCollection = client.db('nodeMongoCruddb').collection('users');
-        const user = {
+        // const user = {
 
-            name: 'testint test 2',
-            email: 'testing2@gmail.com'
-        }
+        //     name: 'testint test 2',
+        //     email: 'testing2@gmail.com'
+        // }
 
-        const result = await userCollection.insertOne(user);
-        console.log(result);
+        // const result = await userCollection.insertOne(user);
+        // console.log(result);
+
+        app.post('/users', (req, res) => {
+            const user = req.body;
+            console.log(user);
+        })
 
     }
     finally{
