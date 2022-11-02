@@ -21,6 +21,16 @@ async function run(){
 
     try{
         const userCollection = client.db('nodeMongoCruddb').collection('users');
+
+
+       app.get('/users', async(req, res) =>{
+        const query = {};
+        const cursor = userCollection.find(query);
+        const users = await cursor.toArray();
+        res.send(users);
+       });
+
+
         // const user = {
 
         //     name: 'testint test 2',
